@@ -3,6 +3,7 @@
 {% block titre %}{{ produit.nom }}{% endblock %}
 
 {% block contenu %}
+<a href="/">⇦ Page D'accueil</a>
     <div class="details">
         <img src="{{ url_for('static', filename=produit.image) }}" alt="{{ produit.nom }}">
         <h1>{{ produit.nom }}</h1>
