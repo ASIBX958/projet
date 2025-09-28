@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://cdn.lordicon.com/fudrjiwc.js"></script>
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="https://kit.fontawesome.com/618007f65e.js" crossorigin="anonymous"></script>
+    <script src="assets/js/session.js"></script>
+    <script src="assets/js/main.js"></script>
+    <link rel="stylesheet" href="assets/css/main.css" />
+    <link rel="stylesheet" href="assets/css/base.css" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"
+        integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <link rel="stylesheet" href="assets/css/menu_bar.css" />
+    <link rel="stylesheet" href="assets/css/historique.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
+    <title>Historique</title>
+</head>
+
+<body>
+    <script src="header.js"></script>
+    <div class="welcome">
+        <h4>Mes opérations</h4>
+    </div>
+    <div class="logout">
+        <i class="fas fa-power-off" style="font-size: 20px; color: red"></i><a
+            href="index.html">Déconnexion</a>
+    </div>
+
+    <div class="container back_white mb-2">
+        <h3>Historique des opérations</h3>
+    </div>
+
+    <div class="container back_white mb-5">
+        <div class="historique_container">
+
+            <div id="result">Chargement...
+            </div>
+            <script>
+                $.ajax({
+                    url: "https://grp.src-top.online/temp/assr/assets/historique.php/?IdUser=" + localStorage.getItem("id_user"),
+                    success: function (result) {
+                        $("#result").html(result);
+                    },
+                });
+            </script>
+
+            <!-- 
+      <?php
+
+date_default_timezone_set('UTC');
+
+
+  function NbJours($debut, $fin) {
+
+        $tDeb = explode("-", $debut);
+        $tFin = explode("-", $fin);
+  
+        $diff = mktime(0, 0, 0, $tFin[1], $tFin[2], $tFin[0]) - 
+                mktime(0, 0, 0, $tDeb[1], $tDeb[2], $tDeb[0]);
+        
+        return(($diff / 86400)+1);
+  
+      }
+
+		$selectAll = $database->query("SELECT * FROM stock ORDER BY id DESC");
+		foreach ($selectAll->fetchAll(PDO::FETCH_ASSOC) as $res) {
+
+      $now = date("Y-m-d"); 
+
+    
+
+     $Nombres_jours =  NbJours($res['date'], $now);
+
+     if ($Nombres_jours >= 3) {
+      $statut = "statut_error";
+      $statut_text = "Refusé";
+     }else {
+      $statut = "statut_pending";
+      $statut_text = "En attente";
+     }
+
+			echo '
+      <div class="operation">
+            <div class="icon_operation">
+                <span class="material-symbols-outlined">
+                    payments
+                    </span>                    
+            </div>
+            <div class="text_operation">
+<p>Virement a ' . $res['prenom'] . '  ' . $res['nom'] . '</p>
+<sub style="text-transform:uppercase">' . $res['iban'] . '</sub>
+<sub>Date: ' . $res['date'] . '</sub>
+            </div>
+            <div class="montant_operation">
+                <div class="montant">
+                    <p>- ' . $res['montant'] . ' €</p>
+                </div>
+                <div class="statut '.$statut.'">
+                    <p>'. $statut_text .'</p>
+                </div>
+            </div>
+        </div>';
+
+		}
+
+  
+		?>
+		 -->
+
+            <div class="operation">
+                <div class="icon_operation">
+                    <span class="material-symbols-outlined"> credit_card </span>
+                </div>
+                <div class="text_operation">
+                    <p>Virement en votre faveur</p>
+                    <sub style="text-transform: uppercase">****</sub>
+                    <sub>Date: 2005-07-15 </sub>
+                </div>
+                <div class="montant_operation">
+                    <div class="montant">
+                        <p>+ 1.000.000 €</p>
+                    </div>
+                    <div class="statut statut_success">
+                        <p>Effectué</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="operation">
+                <div class="icon_operation">
+                    <span class="material-symbols-outlined"> credit_card </span>
+                </div>
+                <div class="text_operation">
+                    <p>Virement en votre faveur</p>
+                    <sub style="text-transform: uppercase">****</sub>
+                    <sub>Date: 2005-06-08 </sub>
+                </div>
+                <div class="montant_operation">
+                    <div class="montant">
+                        <p>+ 300.000 €</p>
+                    </div>
+                    <div class="statut statut_success">
+                        <p>Effectué</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="operation">
+                <div class="icon_operation">
+                    <span class="material-symbols-outlined"> credit_card </span>
+                </div>
+                <div class="text_operation">
+                    <p>Virement en votre faveur</p>
+                    <sub style="text-transform: uppercase">****</sub>
+                    <sub>Date: 2005-06-07 </sub>
+                </div>
+                <div class="montant_operation">
+                    <div class="montant">
+                        <p>+ 500.000 €</p>
+                    </div>
+                    <div class="statut statut_success">
+                        <p>Effectué</p>
+                    </div>
+                </div>
+            </div>
+
+
+
+
+
+        </div>
+    </div>
+
+    <div class="title">
+        <h2>Votre gestionnaire</h2>
+    </div>
+    <script src="footer.js"></script>
+
+    <div class="navigation_bar">
+        <div class="navigation">
+            <ul>
+                <li class="list">
+                    <a href="solde.html">
+                        <span class="icon">
+                            <ion-icon name="cash-outline"></ion-icon>
+                        </span>
+                        <span class="text">Solde</span>
+                    </a>
+                </li>
+                <li class="list active">
+                    <a href="#">
+                        <span class="icon">
+                            <ion-icon name="time-outline"></ion-icon>
+                        </span>
+                        <span class="text">Historique</span>
+                    </a>
+                </li>
+                <li class="list">
+                    <a href="virement.html">
+                        <span class="icon">
+                            <ion-icon name="swap-horizontal-outline"></ion-icon>
+                        </span>
+                        <span class="text">Virement</span>
+                    </a>
+                </li>
+                <li class="list">
+                    <a href="cartes.html">
+                        <span class="icon">
+                            <ion-icon name="card-outline"></ion-icon>
+                        </span>
+                        <span class="text">Cartes</span>
+                    </a>
+                </li>
+                <li class="list">
+                    <a href="rib.html">
+                        <span class="icon">
+                            <ion-icon name="document-outline"></ion-icon>
+                        </span>
+                        <span class="text">Rib</span>
+                    </a>
+                </li>
+                <div class="indicator"></div>
+            </ul>
+        </div>
+    </div>
+
+    <script>
+        const list = document.querySelectorAll(".list");
+        function activeLink() {
+            list.forEach((item) => item.classList.remove("active"));
+            this.classList.add("active");
+        }
+        list.forEach((item) => item.addEventListener("click", activeLink));
+    </script>
+
+    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+
+    <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+</body>
+
+</html>

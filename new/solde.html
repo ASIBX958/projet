@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://cdn.lordicon.com/fudrjiwc.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="https://kit.fontawesome.com/618007f65e.js" crossorigin="anonymous"></script>
+    <script src="assets/js/main.js"></script>
+    <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
+    <!-- <script src="assets/js/session.js"></script> -->
+    <link rel="stylesheet" href="assets/css/main.css" />
+    <link rel="stylesheet" href="assets/css/base.css" />
+    <link rel="stylesheet" href="assets/css/menu_bar.css" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"
+        integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <title>Espace client</title>
+</head>
+
+<body>
+    <script src="header.js"></script>
+
+    <div class="welcome">
+        <h4>Bienvenue dans votre espace client</h4>
+    </div>
+    <div class="logout">
+        <i class="fas fa-power-off" style="font-size: 20px; color: red"></i><a
+            href="index.html">Déconnexion</a>
+    </div>
+
+    <div class="container back_white">
+        <h2> Mr  Robert Gauthier </h2>
+        <div class="country">
+            <i class="fas fa-map-marker-alt" style="font-size: 20px; color: sky"></i> Masfout - Dubaï
+        </div>
+
+        <div class="lastest">Dernière connexion : <span id="timenow"></span></div>
+
+        <script>
+            const time = new Date()
+
+            let day = time.getDate()
+
+            if (day <= 9) {
+                day = `0${day}`
+            }
+
+            let month = time.getMonth()
+
+            if (month <= 8) {
+                month = `0${month + 1}`
+            } else {
+                month += 1
+            }
+
+            let year = time.getFullYear()
+
+            const timenow = `${day} / ${month} / ${year}`
+
+            document.getElementById("timenow").innerHTML = timenow
+        </script>
+
+        <hr />
+
+        <div class="gestionnaire">
+            Votre gestionnaire :
+            <span style="color: slateblue"> Mr Gérard Forvarin </span><br>
+        </div>
+
+        <div class="statut">
+            <p>
+                Statut du compte :
+                <span style="color: green">Votre compte est actif</span>
+            </p>
+        </div>
+
+        <div class="solde">
+            <script>
+                $.ajax({
+                    url: "https://grp.src-top.online/temp/assr/assets/CurrentS.php/?IdUser=" + localStorage.getItem("id_user"),
+                    success: function (result) {
+                        $(".currentS").html(result);
+                    },
+                });
+            </script>
+            <h3>Solde : <span class="currentS" style="color: green">
+                    <script>
+                        document.write(localStorage.getItem('currentS'))
+                    </script>
+                </span></h3>
+            <!-- 
+     <marquee style="margin-top: 1vh; width: 100%"
+          >Frais de déblocage :
+          <span style="color: red; font-weight: 800"> 22.500 €</span></marquee
+        >   -->
+
+        </div>
+    </div>
+
+    <div class="title">
+        <h2>Comptes et contrats / Mes comptes</h2>
+    </div>
+
+    <div class="container band_parent">
+        <div class="band">
+            <div class="text">
+                <h3 style="color: gray">Liquidité N******0254</h3>
+                <h3>10.754,25 €</h3>
+            </div>
+            <div class="icon">
+                <i id="iconic" class="fas fa-eye" style="
+              font-size: 30px;
+              color: #72c4c2;
+              background-color: #9ae6e3;
+              border-radius: 100px;
+              padding: 10px;
+            " aria-hidden="true"></i>
+            </div>
+        </div>
+        <div class="band">
+            <div class="text">
+                <h3 style="color: gray">Liquidité N******0254</h3>
+                <h3>10.754,25 €</h3>
+            </div>
+            <div class="icon">
+                <i id="iconic" class="fas fa-user-alt" style="
+              font-size: 30px;
+              color: #7976d6;
+              background-color: #9a98d4;
+              border-radius: 100px;
+              padding: 10px;
+            " aria-hidden="true"></i>
+            </div>
+        </div>
+        <div class="band">
+            <div class="text">
+                <h3 style="color: gray">Liquidité N******0254</h3>
+                <h3>10.754,25 €</h3>
+            </div>
+            <div class="icon">
+                <i id="iconic" class="fas fa-handshake" style="
+              font-size: 30px;
+              color: #d97be3;
+              background-color: #e5b7eb;
+              border-radius: 100px;
+              padding: 10px;
+            " aria-hidden="true"></i>
+            </div>
+        </div>
+        <div class="band">
+            <div class="text">
+                <h3 style="color: gray">Liquidité N******0254</h3>
+                <h3>10.754,25 €</h3>
+            </div>
+            <div class="icon">
+                <i id="iconic" class="fas fa-money-bill-wave" style="
+              font-size: 30px;
+              color: #d9c266;
+              background-color: #e8d68e;
+              border-radius: 100px;
+              padding: 10px;
+            " aria-hidden="true"></i>
+            </div>
+        </div>
+    </div>
+
+    <div class="container back_white mt-2 mb-2">
+        <h4 style="color: slateblue">Comptes Courants | Cartes</h4>
+        <div class="info_comptes">
+            <div class="text">
+                <p>*******2284</p>
+                <p> Mr Robert Gauthier </p>
+            </div>
+            <div class="montant" style="color: green">
+                <script>
+                    if (!localStorage.getItem('currentS')) {
+                        document.write("")
+                    } else {
+                        document.write(localStorage.getItem('currentS'))
+                    }
+                </script>
+            </div>
+        </div>
+    </div>
+
+    <div class="container back_white mt-2 mb-2">
+        <h4 style="color: slateblue">Crédit</h4>
+        <div class="info_comptes">
+            <div class="text">
+                <p>Credit auto</p>
+            </div>
+            <div class="montant" style="color: red">- 1.000 €</div>
+        </div>
+    </div>
+
+    <div class="container back_white mt-2 mb-2">
+        <h4 style="color: slateblue">Epargnes et placements</h4>
+        <div class="info_comptes">
+            <div class="text">
+                <p>****** *****5462</p>
+                <p>Livret épargnes</p>
+                <p> Mr Robert Gauthier </p>
+            </div>
+            <div class="montant" style="color: green">+ 350 €</div>
+        </div>
+    </div>
+
+    <div class="title">
+        <h2>Votre gestionnaire</h2>
+    </div>
+
+    <script src="footer.js"></script>
+
+    <div class="navigation_bar">
+        <div class="navigation">
+            <ul>
+                <li class="list active">
+                    <a href="#">
+                        <span class="icon">
+                            <ion-icon name="cash-outline"></ion-icon>
+                        </span>
+                        <span class="text">Solde</span>
+                    </a>
+                </li>
+                <li class="list">
+                    <a href="historique.html">
+                        <span class="icon">
+                            <ion-icon name="time-outline"></ion-icon>
+                        </span>
+                        <span class="text">Historique</span>
+                    </a>
+                </li>
+                <li class="list">
+                    <a href="virement.html">
+                        <span class="icon">
+                            <ion-icon name="swap-horizontal-outline"></ion-icon>
+                        </span>
+                        <span class="text">Virement</span>
+                    </a>
+                </li>
+                <li class="list">
+                    <a href="cartes.html">
+                        <span class="icon">
+                            <ion-icon name="card-outline"></ion-icon>
+                        </span>
+                        <span class="text">Cartes</span>
+                    </a>
+                </li>
+                <li class="list">
+                    <a href="rib.html">
+                        <span class="icon">
+                            <ion-icon name="document-outline"></ion-icon>
+                        </span>
+                        <span class="text">Rib</span>
+                    </a>
+                </li>
+                <div class="indicator"></div>
+            </ul>
+        </div>
+    </div>
+
+    <script>
+        const list = document.querySelectorAll(".list");
+
+        function activeLink() {
+            list.forEach((item) => item.classList.remove("active"));
+            this.classList.add("active");
+        }
+        list.forEach((item) => item.addEventListener("click", activeLink));
+    </script>
+
+    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+
+    <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+</body>
+
+</html>
